@@ -1,113 +1,93 @@
-**English** | [中文](README.md)
+# Digital Oracle
 
-# Digital Oracle 📈
+A local financial research workbench that turns scattered market signals into layered, traceable analysis. Ask a probability, numeric forecast, or directional question; inspect the evidence, assumptions, counterarguments, and report behind the answer.
 
-Digital Oracle is an open-source Skill that lets AI Agents mine macro-event trends from massive financial data.
+This fork adds a web application and a bounded multi-agent Codex workflow to [komako-workshop/digital-oracle](https://github.com/komako-workshop/digital-oracle). The interface and generated research currently use Traditional Chinese; this introduction is in English.
 
-Works with OpenClaw / Claude Code / Cursor / Codex.
+## Features
 
-We live in an era of extreme noise. Social media is flooded with emotional predictions — someone says housing is about to crash, someone says gold is going to the moon, someone says war breaks out tomorrow. These opinions chase crowd sentiment rather than rational analysis grounded in objective data.
+- Question planning and topic-specific core financial signals.
+- Parallel data collection, caching, explicit failures, and anomaly promotion.
+- Layered evidence tables and deterministic cross-market statistics.
+- A headline answer, scenarios, counterevidence, and monitoring thresholds.
+- Three parallel Codex research roles: direct evidence, cross-market interpretation, and counterarguments. A synthesis model combines their findings with the original evidence, followed by review and at most one revision.
+- Draft reports, progress tracking, saved checkpoints, cancellation, and report recovery.
+- Local research history, evidence inspection, resource checks, JSON downloads, and PDF export.
+- Hong Kong adapters for official housing and unemployment baselines, HKMA monetary data, and southbound trading data, alongside the upstream financial providers.
 
-But trading data is different.
+## How analysis works
 
-Price is absolutely rational — when someone puts real money on an outcome, they think a lot harder than when they post a short video.
-
-This is the core insight of the Efficient Market Hypothesis: **all public information is already priced in. Everything is in the chart.**
-
-Digital Oracle turns this insight into an executable tool. It plugs into 13 authoritative financial data sources — **from prediction markets like Polymarket and Kalshi, to US Treasury yield curves, CFTC institutional positioning, SEC insider trades, central bank rates, crypto derivatives, and China A-share order-size fund flow.**
-
-It doesn't read newspapers, news articles, short videos, or podcasts. It answers questions about housing prices, gold trends, Bitcoin cycles, and military conflict probabilities purely through price signals mined from financial data — delivering structured probability estimates with full reasoning chains.
-
-In a sense, it's a digital oracle for the new era.
-
-## What can it answer?
-
-- "What's the probability of WW3?"
-- "Will there be a US recession this year?"
-- "Is AI in a bubble?"
-- "Is now a good time to buy gold?"
-- "Has Bitcoin bottomed?"
-- "Is NVDA options premium overpriced?"
-
-If there's a market pricing an outcome, Digital Oracle can give you a probability estimate backed by trading data.
-
-## Data Sources
-
-| Provider | Data Type | Purpose |
-|----------|-----------|---------|
-| Polymarket | Prediction market contracts | Event probability pricing |
-| Kalshi | SEC-regulated binary contracts | US political/economic events |
-| Stooq | Stocks/ETFs/FX/Commodities | Price history and trends |
-| Deribit | Crypto derivatives | Futures term structure, options IV |
-| US Treasury | Treasury yields | Yield curves, inflation expectations |
-| CFTC COT | Futures positioning | Institutional direction (smart money) |
-| CoinGecko | Crypto spot | BTC/ETH price, market cap |
-| SEC EDGAR | Insider trades | Form 4 buy/sell signals |
-| BIS | Central bank data | Policy rates, credit-to-GDP gaps |
-| World Bank | Development indicators | GDP, population, trade |
-| Yahoo Finance | US options chains | IV, Greeks, put/call ratio |
-| Eastmoney | China A-share | Quotes, OHLCV, order-size fund flow, sector rotation |
-| Web Search | Web search | VIX, CDS, and other supplementary data |
-
-All APIs are free and require no API keys.
-
-## Installation
-
-### OpenClaw
-
-```bash
-clawhub install digital-oracle
+```text
+Question → signal plan → parallel data collection → calculated statistics
+    → direct-evidence / cross-market / counterargument agents
+    → synthesis + layered report → draft → review and revision → final report
 ```
 
-### Other AI Agents (Claude Code / Cursor / Codex / ...)
+Agents share one evidence snapshot. Agreement between agents is not independent evidence, and their estimates are not averaged as votes. Prices and statistical observations are calculated in code; subjective adjustments are disclosed. Multi-agent analysis uses additional Codex quota and is not a guarantee of better accuracy or shorter latency.
 
-Just tell your agent:
+## Local setup
 
-> Install this open-source project and read SKILL.md as your working instructions: https://github.com/komako-workshop/digital-oracle
+Requirements: Python 3.10+, an installed and authenticated Codex CLI, and an internet connection for providers. macOS is the primary tested environment. Each user supplies their own Codex login; no account credentials are included.
 
-The agent will clone the repo, read the methodology, and call the providers on its own.
+From the repository root:
 
-### Prerequisites
-
-- [uv](https://docs.astral.sh/uv/) — Python package manager, used to run skill scripts at runtime
-- 11 out of 12 data sources have zero external dependencies (pure Python stdlib). Options chain analysis requires an extra install:
-
-```bash
-uv pip install yfinance
+```sh
+python3 -m venv work/oracle-venv
+work/oracle-venv/bin/python -m pip install certifi yfinance -r outputs/oracle-local/requirements-local.txt
+cd outputs/oracle-local
+../../work/oracle-venv/bin/python server.py
 ```
 
-## How It Works
+Open **http://127.0.0.1:8765**. Start only one server on that port. The preserved directory layout is intentional: the application imports the locally adapted provider library in `work/digital-oracle`.
 
-1. **Understand the question** — decompose into core variables, time window, and priceability
-2. **Select signals** — pick 3+ independent data sources based on question type
-3. **Fetch in parallel** — use `gather()` to call multiple providers concurrently
-4. **Contradiction analysis** — find disagreements between markets, explain why both can be right
-5. **Output report** — structured multi-layer signal tables + probability estimates + scenario analysis
+The server listens only on loopback. Publishing this repository does **not** deploy a hosted website. Do not expose the local server through a public tunnel or treat its page token as owner authentication. An internet deployment needs separate authentication, authorization, protected credentials, and a durable analysis backend.
 
-## Project Structure
+### Optional provider configuration
 
+Most enabled sources do not require a paid subscription. Availability, geography, limits, and data freshness vary. SEC requests require your own contact identification; CoinGecko is optional and has a key-based configuration. CoinLore offers a keyless crypto adapter. CME remains disabled in the local application.
+
+Store any personal configuration locally, outside tracked source files. Never commit API keys, passwords, Codex authentication files, or runtime state. The application creates state in `work/oracle-app-state`, which is ignored by Git. Environment variables supported by the relevant adapters include `EDGAR_USER_EMAIL` and `COINGECKO_DEMO_API_KEY`; never put their real values in the repository.
+
+### PDF export
+
+The current PDF exporter uses Node.js, Playwright, and Chrome. Its default discovery is tailored to the original macOS desktop runtime. See `outputs/oracle-local/pdf_export.py` and `pdf_render.cjs` for executable and module configuration before using PDF export on another machine. The ordinary analysis website does not require PDF tooling to start.
+
+## Configuration and tests
+
+- `outputs/oracle-local/config/analysis.json`: signal profiles, thresholds, caching, and workflow settings.
+- `outputs/oracle-local/config/research_agents.json`: enable or disable research roles, concurrency, and role timeouts.
+- `outputs/oracle-local/docs/multi-agent-process.md`: multi-agent behavior and recovery details.
+
+```sh
+cd outputs/oracle-local
+../../work/oracle-venv/bin/python -m unittest discover -s tests -v
 ```
-digital-oracle/
-├── SKILL.md                # Skill definition (read by OpenClaw)
-├── digital_oracle/         # Python source code
-│   ├── concurrent.py       # Parallel execution utilities
-│   ├── http.py             # HTTP client abstraction
-│   ├── snapshots.py        # HTTP response recording/replay (for tests)
-│   └── providers/          # 12 data providers
-├── references/             # API reference
-│   ├── providers.md        # Provider API docs
-│   └── symbols.md          # Trading symbol directory
-├── scripts/                # Demo scripts
-└── tests/                  # Unit tests + fixtures
+
+Unit tests verify implementation behavior, not financial forecasting accuracy. A successful quality review is not statistical calibration. Re-run tests after changing dependencies or providers.
+
+## Repository layout
+
+```text
+outputs/oracle-local/       Web app, backend, UI, configuration and tests
+work/digital-oracle/        Adapted upstream source used by the web app
+digital_oracle/            Upstream-compatible provider source at repository root
+references/                Upstream provider and symbol documentation
+scripts/                   Upstream examples and regression tools
+SKILL.md                   Original methodology
+README.upstream.md         Original project introduction
+LICENSE                    Original MIT license and attribution
 ```
 
-## Design Principles
+The duplicated provider source preserves both the original skill layout and the existing local application layout. Keep corresponding adapter changes synchronized.
 
-- **Zero dependencies first** — 12/13 providers use only the Python standard library, no `pip install` needed
-- **Dependency injection** — all providers accept an optional `http_client` parameter for easy testing
-- **Partial failure tolerance** — one data source going down doesn't break the rest
-- **Snapshot testing** — record real HTTP responses, run tests offline in CI
+## Limits and project status
 
-## License
+This is an experimental research workbench, not an autonomous trading system. Market prices do not uniquely identify every real-world event or future economic level. Research estimates may depend on uncalibrated assumptions; scenario ranges are not automatically confidence intervals. Missing target data may lead to a direction-only answer.
 
-MIT © 2026 komako-workshop — see [LICENSE](LICENSE).
+Known areas needing further work include target-specific fallback validation, strict contract-level anchor verification, comprehensive forecast backtesting, and portable PDF setup. Providers can fail or change formats, and failed or partial agent outputs are disclosed. Data redistribution and commercial-use permissions must be checked with each source; the code license does not license third-party market data.
+
+## Privacy and attribution
+
+This publication contains source code, tests and documentation. It excludes personal reports, live caches, logs, local virtual environments, browser profiles, API keys and Codex credentials. Local development Git history is not imported; the existing public upstream history is retained.
+
+Based on **Digital Oracle by komako-workshop**. The original MIT copyright notice and license are retained in [LICENSE](LICENSE). Original documentation is preserved in [README.upstream.md](README.upstream.md) and the provider snapshot. This fork's additions include the research web interface, local pipeline, Hong Kong adapters, report exports and multi-agent orchestration.

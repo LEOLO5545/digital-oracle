@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "roles": ["direct", "cross_market", "challenge"],
+  "timeout_seconds": 90,
+  "max_workers": 4
+}

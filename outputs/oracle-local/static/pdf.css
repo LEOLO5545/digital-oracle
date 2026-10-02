@@ -1,0 +1,102 @@
+@page{size:A4}
+:root{color-scheme:light;--paper:#fff;--ink:#172720;--muted:#53645c;--line:#d8e1dc;--green:#21634b;--soft:#eef5f0;--panel:#fff;--raised:#fff}
+html,body.pdf-report{background:#fff!important;color:#172720!important;margin:0!important;padding:0!important;font-size:10pt;line-height:1.65;width:auto!important;max-width:none!important}
+.pdf-report #result,.pdf-report #answer,.pdf-report .result-head,.pdf-report #quick-summary,.pdf-report #pdf-sources{display:block!important;width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+.pdf-report h2{font-size:17pt!important;line-height:1.45}.pdf-report h3{font-size:11pt!important}.pdf-report p,.pdf-report li{font-size:9.5pt!important;line-height:1.65}
+.pdf-report h2,.pdf-report h3,.pdf-report summary{break-after:avoid}.pdf-report .result-head{margin:0 0 6mm!important}.pdf-report .question-details{margin:3mm 0}.pdf-report .question-details summary{font-size:9pt}
+.pdf-report .eyebrow{letter-spacing:1px;color:#21634b}.pdf-report .quick-summary{background:#eef5f0!important;border-left:3px solid #21634b!important;padding:6mm!important;break-inside:avoid;margin:7mm 0!important}
+.pdf-report .summary-number{font-size:29pt!important;color:#21634b!important}.pdf-report .summary-signals{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.pdf-report .summary-signals p{display:block!important;overflow:visible!important;white-space:normal!important;max-height:none!important;-webkit-line-clamp:unset!important}
+.pdf-report .summary-top{display:block}.pdf-report .summary-range{display:inline-block;margin-left:3mm}.pdf-report blockquote{font-size:13pt!important;margin:4mm 0!important}
+.pdf-report #research-metrics{display:flex!important;gap:5mm!important;margin:4mm 0!important;padding:3mm 0!important}.pdf-report #research-metrics *{font-size:9pt!important}
+.pdf-report details{content-visibility:visible!important;border:0!important;padding:0!important;margin:6mm 0!important}.pdf-report summary{list-style:none!important}.pdf-report summary::after,.pdf-report summary::marker{display:none!important;content:none!important}
+.pdf-report .layer{break-inside:auto}.pdf-report .layer>summary{padding:0!important}.pdf-report .layer-number{color:#21634b!important}
+.pdf-report .table-wrap{overflow:visible!important;width:100%!important;max-width:none!important;margin:3mm 0!important;border:0!important}
+.pdf-report table{width:100%!important;table-layout:fixed;border-collapse:collapse}.pdf-report th,.pdf-report td{font-size:8pt!important;line-height:1.5;padding:2.5mm 2mm!important;border:0!important;border-bottom:1px solid #d8e1dc!important;vertical-align:top;overflow-wrap:anywhere;min-width:0!important;background:transparent!important;color:#172720!important}
+.pdf-report thead{display:table-header-group}.pdf-report tr{break-inside:avoid}.pdf-report th{color:#53645c!important}.pdf-report a{color:#21634b;text-decoration:none;border:0!important;overflow-wrap:anywhere}
+.pdf-report .probability-card{border:0!important;background:none!important;padding:3mm 0!important}.pdf-report .probability-value{font-size:21pt!important}.pdf-report .audit-note{color:#704c0d!important;background:#fff7e6!important;padding:3mm!important}
+.pdf-report .revision-history{break-before:auto}.pdf-report #pdf-sources{break-before:page}.pdf-report .pdf-source{margin-bottom:5mm;break-inside:avoid}.pdf-report .pdf-source p{margin:1mm 0;font-size:8pt!important}
+.pdf-report *{animation:none!important;transition:none!important;box-shadow:none!important;text-shadow:none!important}
+
+.pdf-report p,.pdf-report li,.pdf-report span,.pdf-report small,.pdf-report strong,.pdf-report .conclusion,.pdf-report .layer-summary{color:#172720!important}
+.pdf-report .muted,.pdf-report .eyebrow,.pdf-report .summary-range{color:#53645c!important}.pdf-report .summary-number,.pdf-report .layer-number{color:#21634b!important}.pdf-report .probability-card{break-inside:avoid}
+.pdf-report .pdf-source a{font-size:8pt}.pdf-report .question-details>summary{display:none}
+
+/* ==========================================================================
+   Print theme for the redesigned web UI (2026-09-30). The web tokens are dark;
+   here they are remapped to ink-on-paper so every component inherits legible colours.
+   ========================================================================== */
+body.pdf-report{--bg:#fff;--bg-2:#f5f8f6;--surface:#fff;--surface-2:#f3f6f4;--surface-3:#edf2ef;--line:#dde5e0;--line-2:#cdd8d1;--line-3:#b5c3bb;--text:#15211c;--text-2:#33433c;--text-3:#56655e;--text-4:#6f7c76;--accent:#1d6a4a;--accent-2:#15553a;--accent-dim:#eaf4ee;--accent-line:#9fc7b1;--warn:#8a5d0c;--warn-dim:#fbf4e4;font-family:-apple-system,"PingFang HK","PingFang TC","Noto Sans CJK TC",sans-serif}
+body.pdf-report:before,body.pdf-report:after{display:none!important}
+.pdf-report *{text-shadow:none!important;box-shadow:none!important;animation:none!important;transition:none!important}
+.pdf-report .reveal{opacity:1!important;transform:none!important}
+/* Header block */
+.pdf-report .result-head{border-bottom:1.5pt solid #15211c!important;padding-bottom:4mm!important}
+.pdf-report .result-head h2{font-size:20pt!important;line-height:1.3!important;color:#15211c!important;max-width:none!important}
+.pdf-report .question-details p{background:#f3f6f4!important;color:#33433c!important;border-left:2pt solid #1d6a4a;border-radius:0!important;padding:3mm 4mm!important;font-size:9pt!important}
+.pdf-report .question-details>summary{font-size:8.5pt!important;color:#56655e!important}
+.pdf-report .question-details>summary:before{display:none}
+.pdf-report #result-time{color:#56655e!important;font-size:8pt!important}
+.pdf-report #research-metrics{border-bottom:.75pt solid #cdd8d1!important;margin-bottom:2mm!important}
+.pdf-report #research-metrics>div{padding:3mm 0!important}
+.pdf-report #research-metrics strong{font-size:16pt!important;color:#15211c!important}
+.pdf-report #research-metrics span{font-size:8pt!important;color:#56655e!important}
+/* Summary card */
+.pdf-report .quick-summary{background:#f1f7f3!important;border:0!important;border-left:3pt solid #1d6a4a!important;border-radius:0!important;padding:5mm 6mm!important}
+.pdf-report .quick-summary:after{display:none!important}
+.pdf-report .summary-number{font-size:30pt!important;color:#15553a!important;font-weight:400!important}
+.pdf-report .summary-number.is-text{font-size:20pt!important;font-weight:700!important}
+.pdf-report .quick-summary blockquote{font-size:12pt!important;color:#15211c!important;margin:3mm 0!important}
+.pdf-report .summary-signals{background:none!important;border:0!important;gap:4mm!important;margin:4mm 0!important}
+.pdf-report .summary-signals>div{background:#fff!important;border:.75pt solid #cdd8d1;padding:3mm 4mm!important}
+.pdf-report .summary-signals p{-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important;color:#33433c!important}
+.pdf-report .range-bar{height:34px!important;margin:3mm 0 1mm!important}
+.pdf-report .range-bar .track{background:#cdd8d1!important}
+.pdf-report .range-bar .band{background:#9fc7b1!important;transform:none!important;opacity:1!important}
+.pdf-report .range-bar .mark{background:#15553a!important;opacity:1!important}
+.pdf-report .range-bar .hist{background:repeating-linear-gradient(90deg,#b5c3bb 0 3px,transparent 3px 6px)!important}
+.pdf-report .range-bar .tick,.pdf-report .range-bar .hist-label{color:#56655e!important}
+/* Section headings: keep the number with its heading, never stranded at a page foot */
+.pdf-report #answer h2{border-top:.75pt solid #cdd8d1!important;padding-top:5mm!important;margin-top:9mm!important;color:#15211c!important;break-after:avoid;page-break-after:avoid}
+.pdf-report #answer h2:before{position:static!important;display:block;transform:none!important;padding:0 0 1.5mm!important;font-size:8pt!important;color:#1d6a4a!important}
+.pdf-report #answer h3{color:#15211c!important;break-after:avoid}
+.pdf-report #answer p{color:#33433c!important}
+.pdf-report #answer>.conclusion{color:#15211c!important;border-left-color:#1d6a4a!important}
+/* Disclosure chrome is meaningless on paper */
+.pdf-report summary:after,.pdf-report summary:before{display:none!important}
+.pdf-report details>summary{list-style:none;cursor:default}
+/* Analysis layers: a clean three-column table, flowing across pages */
+.pdf-report .layer{border:0!important;border-top:.75pt solid #cdd8d1!important;padding:4mm 0 2mm!important;background:none!important}
+.pdf-report .layer>summary{display:block!important;padding:0 0 2mm!important}
+.pdf-report .layer>summary h3{font-size:12.5pt!important;transform:none!important;color:#15211c!important}
+.pdf-report .layer-number{color:#1d6a4a!important}
+.pdf-report .layer-summary{margin:1.5mm 0 0!important;color:#33433c!important;font-size:9.5pt!important}
+.pdf-report .layer>p.muted{font-size:8pt!important;color:#56655e!important}
+.pdf-report .table-wrap{border:.75pt solid #cdd8d1!important;border-radius:0!important;overflow:visible!important;margin:2mm 0 4mm!important}
+.pdf-report table{display:table!important;width:100%!important;table-layout:fixed!important;font-size:8.5pt!important;line-height:1.55!important}
+.pdf-report thead{display:table-header-group!important;position:static!important;width:auto!important;height:auto!important;clip-path:none!important}
+.pdf-report tbody{display:table-row-group!important}
+.pdf-report tr{display:table-row!important;background:none!important;border:0!important;padding:0!important;margin:0!important;break-inside:avoid;page-break-inside:avoid}
+.pdf-report th{display:table-cell!important;background:#eef3f0!important;color:#33433c!important;font-family:inherit!important;font-size:8pt!important;letter-spacing:0!important;padding:2mm 3mm!important;border-bottom:.75pt solid #b5c3bb!important}
+.pdf-report td{display:table-cell!important;width:auto!important;padding:2.2mm 3mm!important;color:#33433c!important;border-top:.5pt solid #dde5e0!important;background:none!important}
+.pdf-report td:before{display:none!important;content:none!important}
+.pdf-report td:first-child{color:#15211c!important}
+.pdf-report td.empty-cell{color:#9aa6a0!important}
+.pdf-report .layer th:first-child{width:36%!important}.pdf-report .layer th:nth-child(2){width:39%!important}.pdf-report .layer th:last-child{width:25%!important}
+.pdf-report td.numeric{font-family:ui-monospace,Menlo,monospace!important}
+/* Advanced / probability blocks */
+.pdf-report .advanced{border:.75pt solid #cdd8d1!important;border-radius:0!important;background:none!important;padding:0 0 3mm!important}
+.pdf-report .advanced>summary{color:#15211c!important;font-weight:600;padding:3mm 4mm!important;background:#f3f6f4}
+.pdf-report .advanced>*:not(summary){margin-left:4mm!important;margin-right:4mm!important}
+.pdf-report .probability-card{background:#f1f7f3!important;border:0!important;border-left:3pt solid #1d6a4a!important;border-radius:0!important;padding:5mm 6mm!important;break-inside:avoid}
+.pdf-report .probability-value{color:#15553a!important;font-size:24pt!important}
+.pdf-report .probability-value small{color:#56655e!important}
+.pdf-report .audit-note{background:#fbf4e4!important;color:#6b4a0c!important;border:.75pt solid #e2c98f!important;border-radius:0!important}
+.pdf-report .citation{color:#15553a!important;text-decoration-color:#9fc7b1!important}
+/* Sources: compact two-column list instead of three pages */
+.pdf-report #pdf-sources{columns:2;column-gap:8mm}
+.pdf-report #pdf-sources>h2{column-span:all;break-after:avoid}
+.pdf-report .pdf-source{break-inside:avoid;margin:0 0 3mm!important}
+.pdf-report .pdf-source h3{font-size:9.5pt!important;margin:0 0 .8mm!important}
+.pdf-report .pdf-source p{font-size:7.5pt!important;line-height:1.45!important;margin:0!important;overflow-wrap:anywhere;color:#56655e!important}
+.pdf-report #pdf-sources>p{column-span:all}
+.pdf-report #answer h2,.pdf-report #answer h3,.pdf-report .layer>summary{break-inside:avoid;page-break-inside:avoid}

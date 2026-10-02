@@ -1,0 +1,2 @@
+# In addition to upstream provider requirements (including yfinance)
+opencc-python-reimplemented==0.1.7

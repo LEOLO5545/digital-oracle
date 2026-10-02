@@ -1,0 +1,1019 @@
+{
+  "profiles": {
+    "ukraine": {
+      "core": [
+        "cftc:WHEAT",
+        "polymarket:*",
+        "yahoo:BA.L",
+        "yahoo:BZ=F",
+        "yahoo:LDO.MI",
+        "yahoo:RHM.DE",
+        "yahoo:TTF=F",
+        "yahoo:USDRUB=X",
+        "yahoo:ZW=F"
+      ],
+      "menu": [
+        [
+          "polymarket",
+          "Russia Ukraine ceasefire",
+          "停火事件合約",
+          "事件直接定價",
+          "對目標事件及條款進行核對"
+        ],
+        [
+          "polymarket",
+          "Russia Ukraine peace agreement",
+          "和平協議合約",
+          "事件直接定價",
+          "區分停火與和平協議的結算邊界"
+        ],
+        [
+          "yahoo",
+          "ZW=F",
+          "小麥期貨",
+          "糧食與出口",
+          "黑海出口供應風險"
+        ],
+        [
+          "yahoo",
+          "USDRUB=X",
+          "美元兌盧布",
+          "區域匯率",
+          "制裁及跨境結算風險；離岸流動性受限"
+        ],
+        [
+          "yahoo",
+          "RHM.DE",
+          "Rheinmetall",
+          "歐洲防務",
+          "歐洲防務需求的區域敏感度"
+        ],
+        [
+          "yahoo",
+          "BA.L",
+          "BAE Systems",
+          "歐洲防務",
+          "跨國防務訂單對照；同業不可重複投票"
+        ],
+        [
+          "yahoo",
+          "LDO.MI",
+          "Leonardo",
+          "歐洲防務",
+          "歐陸同業對照；非新增獨立維度"
+        ],
+        [
+          "yahoo",
+          "LMT",
+          "Lockheed Martin",
+          "美國防務對照",
+          "控制全球軍費周期，相關權重低於歐洲"
+        ],
+        [
+          "yahoo",
+          "RTX",
+          "RTX",
+          "美國防務對照",
+          "控制全球軍費周期，非獨立票數"
+        ],
+        [
+          "yahoo",
+          "ITA",
+          "美國防務ETF",
+          "美國防務對照",
+          "個股相對板塊對照，非獨立票數"
+        ],
+        [
+          "yahoo",
+          "BZ=F",
+          "布蘭特原油",
+          "能源供應",
+          "歐洲能源供應風險"
+        ],
+        [
+          "yahoo",
+          "CL=F",
+          "WTI原油",
+          "能源供應",
+          "與布蘭特相對價差，區分全球油價因素"
+        ],
+        [
+          "yahoo",
+          "GC=F",
+          "黃金",
+          "避險資產",
+          "避險配置；須排除實質利率影響"
+        ],
+        [
+          "yahoo",
+          "USDCHF=X",
+          "美元兌瑞郎",
+          "避險資產",
+          "貨幣避險交叉確認"
+        ],
+        [
+          "yahoo",
+          "HG=F",
+          "銅",
+          "避險資產",
+          "銅金比率區分增長與避險需求"
+        ],
+        [
+          "cftc",
+          "WHEAT",
+          "小麥期貨持倉",
+          "資金持倉",
+          "價格與投機倉位交叉核對"
+        ],
+        [
+          "cftc",
+          "CRUDE OIL",
+          "原油期貨持倉",
+          "資金持倉",
+          "能源價格與投機倉位交叉核對"
+        ],
+        [
+          "web",
+          "Ukraine sovereign bond price yield Russia Ukraine CDS quote",
+          "主權債與CDS線索",
+          "區域信用線索",
+          "只定位金融報價，未核對前不得進入估計"
+        ],
+        [
+          "yahoo",
+          "SPY",
+          "美股大盤",
+          "宏觀背景",
+          "控制全球風險偏好，非俄烏直接證據"
+        ],
+        [
+          "yahoo",
+          "^VIX",
+          "VIX",
+          "宏觀背景",
+          "控制美股波動，不能識別地區事件"
+        ],
+        [
+          "yahoo",
+          "TTF=F",
+          "歐洲天然氣 TTF",
+          "歐洲能源供應",
+          "歐洲天然氣供應風險，注意合約及成交品質"
+        ],
+        [
+          "fred",
+          "BAMLH0A0HYM2",
+          "高收益債息差",
+          "宏觀背景",
+          "控制全球信用風險"
+        ],
+        [
+          "fred",
+          "DFII10",
+          "十年實質利率",
+          "宏觀背景",
+          "控制黃金估值的利率因素"
+        ],
+        [
+          "treasury",
+          "",
+          "美國收益率曲線",
+          "宏觀背景",
+          "控制全球利率周期"
+        ]
+      ],
+      "risk_direction": {
+        "BZ=F": 1,
+        "CL=F": 1,
+        "TTF=F": 1,
+        "ZW=F": 1,
+        "USDRUB=X": 1,
+        "RHM.DE": 1,
+        "BA.L": 1,
+        "LDO.MI": 1,
+        "GC=F": 1,
+        "SPY": -1,
+        "^VIX": 1,
+        "ITA": 1,
+        "LMT": 1,
+        "RTX": 1,
+        "USDCHF=X": -1
+      }
+    },
+    "rates": {
+      "core": [
+        "polymarket:*",
+        "kalshi:KXFEDDECISION",
+        "fred:DFF",
+        "fred:SOFR",
+        "treasury:*",
+        "yahoo:SHY",
+        "yahoo:TLT"
+      ],
+      "required": [
+        [
+          "polymarket",
+          "Fed rate cut",
+          "減息事件合約",
+          "事件定價"
+        ],
+        [
+          "kalshi",
+          "KXFEDDECISION",
+          "聯儲決策合約",
+          "事件定價"
+        ],
+        [
+          "fred",
+          "DFF",
+          "有效聯邦基金利率",
+          "短端資金"
+        ],
+        [
+          "fred",
+          "SOFR",
+          "隔夜融資利率",
+          "短端資金"
+        ],
+        [
+          "treasury",
+          "",
+          "國債期限曲線",
+          "期限結構"
+        ],
+        [
+          "yahoo",
+          "SHY",
+          "短期國債ETF",
+          "利率資產"
+        ],
+        [
+          "yahoo",
+          "TLT",
+          "長期國債ETF",
+          "利率資產"
+        ]
+      ],
+      "background": [
+        [
+          "yahoo",
+          "SPY",
+          "美股大盤",
+          "宏觀背景"
+        ],
+        [
+          "yahoo",
+          "QQQ",
+          "科技股",
+          "宏觀背景"
+        ],
+        [
+          "yahoo",
+          "IEF",
+          "中期國債",
+          "宏觀背景"
+        ],
+        [
+          "yahoo",
+          "HYG",
+          "高收益債ETF",
+          "宏觀背景"
+        ],
+        [
+          "yahoo",
+          "^VIX",
+          "VIX",
+          "宏觀背景"
+        ],
+        [
+          "yahoo",
+          "DX-Y.NYB",
+          "美元指數",
+          "宏觀背景"
+        ],
+        [
+          "yahoo",
+          "GC=F",
+          "黃金",
+          "宏觀背景"
+        ],
+        [
+          "fred",
+          "DFII10",
+          "實質利率",
+          "宏觀背景"
+        ],
+        [
+          "fred",
+          "T10YIE",
+          "盈虧平衡通脹",
+          "宏觀背景"
+        ],
+        [
+          "fred",
+          "BAMLH0A0HYM2",
+          "高收益債息差",
+          "宏觀背景"
+        ]
+      ]
+    },
+    "gold": {
+      "core": [
+        "yahoo:GC=F",
+        "yahoo:SI=F",
+        "fred:DFII10",
+        "yahoo:DX-Y.NYB",
+        "cftc:GOLD",
+        "polymarket:*"
+      ],
+      "required": [
+        [
+          "yahoo",
+          "GC=F",
+          "黃金",
+          "貴金屬"
+        ],
+        [
+          "yahoo",
+          "SI=F",
+          "白銀",
+          "貴金屬"
+        ],
+        [
+          "fred",
+          "DFII10",
+          "十年實質利率",
+          "利率"
+        ],
+        [
+          "yahoo",
+          "DX-Y.NYB",
+          "美元指數",
+          "匯率"
+        ],
+        [
+          "cftc",
+          "GOLD",
+          "黃金持倉",
+          "資金持倉"
+        ]
+      ]
+    },
+    "bitcoin": {
+      "core": [
+        "yahoo:BTC-USD",
+        "yahoo:ETH-USD",
+        "deribit:*",
+        "deribit_options:*",
+        "coinlore:*",
+        "polymarket:*"
+      ],
+      "required": [
+        [
+          "yahoo",
+          "BTC-USD",
+          "Bitcoin",
+          "現貨價格"
+        ],
+        [
+          "yahoo",
+          "ETH-USD",
+          "Ethereum",
+          "加密對照"
+        ],
+        [
+          "deribit",
+          "BTC",
+          "Bitcoin期貨",
+          "期限基差"
+        ],
+        [
+          "deribit_options",
+          "BTC",
+          "Bitcoin期權",
+          "期權定價"
+        ],
+        [
+          "coinlore",
+          "",
+          "加密市值",
+          "市場結構"
+        ]
+      ]
+    },
+    "equity": {
+      "core": [
+        "options:*",
+        "edgar:*",
+        "target:*"
+      ],
+      "required": []
+    },
+    "general": {
+      "core": [
+        "polymarket:*",
+        "target:*"
+      ],
+      "required": []
+    },
+    "war": {
+      "core": [
+        "polymarket:*",
+        "yahoo:GC=F",
+        "yahoo:BZ=F",
+        "yahoo:ITA",
+        "yahoo:^VIX"
+      ],
+      "required": [
+        [
+          "polymarket",
+          "world war 3",
+          "世界大戰事件合約",
+          "事件定價"
+        ],
+        [
+          "polymarket",
+          "military conflict",
+          "軍事衝突事件合約",
+          "事件定價"
+        ],
+        [
+          "yahoo",
+          "GC=F",
+          "黃金",
+          "避險資產"
+        ],
+        [
+          "yahoo",
+          "USDCHF=X",
+          "美元兌瑞郎",
+          "避險貨幣"
+        ],
+        [
+          "yahoo",
+          "BZ=F",
+          "布蘭特原油",
+          "能源供應"
+        ],
+        [
+          "yahoo",
+          "CL=F",
+          "WTI原油",
+          "能源供應"
+        ],
+        [
+          "yahoo",
+          "ITA",
+          "美國軍工ETF",
+          "國防"
+        ],
+        [
+          "yahoo",
+          "SPY",
+          "美股大盤",
+          "風險資產"
+        ],
+        [
+          "yahoo",
+          "^VIX",
+          "VIX",
+          "波動率"
+        ],
+        [
+          "fred",
+          "BAMLH0A0HYM2",
+          "高收益債息差",
+          "信用風險"
+        ],
+        [
+          "cftc",
+          "GOLD",
+          "黃金持倉",
+          "資金持倉"
+        ],
+        [
+          "treasury",
+          "",
+          "國債期限曲線",
+          "避險利率"
+        ]
+      ],
+      "risk_direction": {
+        "GC=F": 1,
+        "USDCHF=X": -1,
+        "BZ=F": 1,
+        "CL=F": 1,
+        "ITA": 1,
+        "SPY": -1,
+        "^VIX": 1
+      }
+    },
+    "taiwan": {
+      "core": [
+        "polymarket:*",
+        "yahoo:EWT",
+        "yahoo:TSM",
+        "yahoo:TWD=X"
+      ],
+      "required": [
+        [
+          "polymarket",
+          "China Taiwan invasion",
+          "台海軍事事件合約",
+          "事件定價"
+        ],
+        [
+          "polymarket",
+          "China blockade Taiwan",
+          "台海封鎖事件合約",
+          "事件定價"
+        ],
+        [
+          "yahoo",
+          "EWT",
+          "台灣股市ETF",
+          "台灣資產"
+        ],
+        [
+          "yahoo",
+          "TSM",
+          "台積電ADR",
+          "半導體供應鏈"
+        ],
+        [
+          "yahoo",
+          "TWD=X",
+          "美元兌新台幣",
+          "台灣資產"
+        ],
+        [
+          "yahoo",
+          "SOXX",
+          "半導體ETF",
+          "半導體供應鏈"
+        ],
+        [
+          "yahoo",
+          "FXI",
+          "中國大型股ETF",
+          "中國資產"
+        ],
+        [
+          "yahoo",
+          "ITA",
+          "美國軍工ETF",
+          "國防"
+        ],
+        [
+          "yahoo",
+          "^VIX",
+          "VIX",
+          "波動率"
+        ],
+        [
+          "yahoo",
+          "GC=F",
+          "黃金",
+          "避險資產"
+        ]
+      ],
+      "risk_direction": {
+        "EWT": -1,
+        "TSM": -1,
+        "TWD=X": 1,
+        "SOXX": -1,
+        "FXI": -1,
+        "ITA": 1,
+        "^VIX": 1,
+        "GC=F": 1
+      }
+    },
+    "recession": {
+      "core": [
+        "polymarket:*",
+        "kalshi:KXGDP",
+        "fred:T10Y2Y",
+        "fred:BAMLH0A0HYM2",
+        "treasury:*"
+      ],
+      "required": [
+        [
+          "polymarket",
+          "US recession",
+          "美國衰退事件合約",
+          "事件定價"
+        ],
+        [
+          "kalshi",
+          "KXGDP",
+          "GDP事件合約",
+          "事件定價"
+        ],
+        [
+          "fred",
+          "T10Y2Y",
+          "10年減2年息差",
+          "期限結構"
+        ],
+        [
+          "treasury",
+          "",
+          "國債期限曲線",
+          "期限結構"
+        ],
+        [
+          "fred",
+          "BAMLH0A0HYM2",
+          "高收益債息差",
+          "信用風險"
+        ],
+        [
+          "fred",
+          "BAMLC0A0CM",
+          "投資級債息差",
+          "信用風險"
+        ],
+        [
+          "yahoo",
+          "XLY",
+          "可選消費ETF",
+          "周期股相對表現"
+        ],
+        [
+          "yahoo",
+          "XLP",
+          "必需消費ETF",
+          "周期股相對表現"
+        ],
+        [
+          "yahoo",
+          "HG=F",
+          "銅",
+          "增長敏感商品"
+        ],
+        [
+          "yahoo",
+          "GC=F",
+          "黃金",
+          "增長敏感商品"
+        ],
+        [
+          "yahoo",
+          "IWM",
+          "美國小型股",
+          "風險資產"
+        ],
+        [
+          "yahoo",
+          "SPY",
+          "美股大盤",
+          "風險資產"
+        ]
+      ],
+      "risk_direction": {
+        "XLY": -1,
+        "IWM": -1,
+        "SPY": -1,
+        "HG=F": -1,
+        "GC=F": 1
+      }
+    },
+    "ai_tech": {
+      "core": [
+        "yahoo:QQQ",
+        "yahoo:NVDA",
+        "yahoo:SMH",
+        "options:*"
+      ],
+      "required": [
+        [
+          "yahoo",
+          "QQQ",
+          "納斯達克100 ETF",
+          "目標資產"
+        ],
+        [
+          "options",
+          "QQQ",
+          "納指期權",
+          "期權定價"
+        ],
+        [
+          "yahoo",
+          "NVDA",
+          "NVIDIA",
+          "AI龍頭"
+        ],
+        [
+          "yahoo",
+          "SMH",
+          "半導體ETF",
+          "AI供應鏈"
+        ],
+        [
+          "yahoo",
+          "MSFT",
+          "Microsoft",
+          "AI平台"
+        ],
+        [
+          "yahoo",
+          "RSP",
+          "標普等權ETF",
+          "市場廣度"
+        ],
+        [
+          "yahoo",
+          "SPY",
+          "標普500",
+          "市場廣度"
+        ],
+        [
+          "yahoo",
+          "^VIX",
+          "VIX",
+          "波動率"
+        ],
+        [
+          "fred",
+          "DFII10",
+          "10年實質利率",
+          "估值折現"
+        ],
+        [
+          "polymarket",
+          "Nasdaq",
+          "納指事件合約",
+          "事件定價"
+        ]
+      ],
+      "risk_direction": {
+        "QQQ": -1,
+        "NVDA": -1,
+        "SMH": -1,
+        "MSFT": -1,
+        "^VIX": 1
+      }
+    },
+    "oil": {
+      "core": [
+        "yahoo:BZ=F",
+        "yahoo:CL=F",
+        "cftc:CRUDE OIL",
+        "polymarket:*"
+      ],
+      "required": [
+        [
+          "yahoo",
+          "BZ=F",
+          "布蘭特原油",
+          "目標資產"
+        ],
+        [
+          "yahoo",
+          "CL=F",
+          "WTI原油",
+          "期貨曲線"
+        ],
+        [
+          "options",
+          "USO",
+          "原油ETF期權",
+          "期權定價"
+        ],
+        [
+          "cftc",
+          "CRUDE OIL",
+          "原油持倉",
+          "資金持倉"
+        ],
+        [
+          "polymarket",
+          "oil price",
+          "油價事件合約",
+          "事件定價"
+        ],
+        [
+          "yahoo",
+          "XLE",
+          "能源股ETF",
+          "能源股"
+        ],
+        [
+          "yahoo",
+          "NG=F",
+          "天然氣",
+          "能源"
+        ],
+        [
+          "yahoo",
+          "DX-Y.NYB",
+          "美元指數",
+          "美元"
+        ],
+        [
+          "fred",
+          "T10YIE",
+          "盈虧平衡通脹",
+          "通脹預期"
+        ]
+      ],
+      "risk_direction": {
+        "BZ=F": 1,
+        "CL=F": 1,
+        "XLE": 1,
+        "NG=F": 1
+      }
+    },
+    "hk_market": {
+      "core": [
+        "yahoo:^HSI",
+        "yahoo:0016.HK",
+        "yahoo:2388.HK",
+        "hkma:HIBOR_1M",
+        "hkma:AGG_BALANCE"
+      ],
+      "required": [
+        [
+          "yahoo",
+          "^HSI",
+          "恒生指數",
+          "目標資產"
+        ],
+        [
+          "yahoo",
+          "2800.HK",
+          "盈富基金",
+          "目標資產"
+        ],
+        [
+          "yahoo",
+          "0016.HK",
+          "新鴻基地產",
+          "地產"
+        ],
+        [
+          "yahoo",
+          "0823.HK",
+          "領展",
+          "地產"
+        ],
+        [
+          "yahoo",
+          "0012.HK",
+          "恒基地產",
+          "地產"
+        ],
+        [
+          "yahoo",
+          "2388.HK",
+          "中銀香港",
+          "銀行與融資"
+        ],
+        [
+          "yahoo",
+          "0005.HK",
+          "滙豐控股",
+          "銀行與融資"
+        ],
+        [
+          "yahoo",
+          "FXI",
+          "中國大型股ETF",
+          "內地資金"
+        ],
+        [
+          "yahoo",
+          "CNY=X",
+          "美元兌人民幣",
+          "匯率"
+        ],
+        [
+          "fred",
+          "SOFR",
+          "美元隔夜融資利率",
+          "融資成本"
+        ],
+        [
+          "treasury",
+          "",
+          "美國國債曲線",
+          "融資成本"
+        ],
+        [
+          "hkma",
+          "HIBOR_1M",
+          "1個月HIBOR定價",
+          "融資成本"
+        ],
+        [
+          "hkma",
+          "HIBOR_3M",
+          "3個月HIBOR定價",
+          "融資成本"
+        ],
+        [
+          "hkma",
+          "AGG_BALANCE",
+          "銀行體系總結餘",
+          "港元流動性"
+        ],
+        [
+          "southbound",
+          "",
+          "港股通南向資金淨買入",
+          "內地資金"
+        ]
+      ],
+      "risk_direction": {
+        "^HSI": -1,
+        "0016.HK": -1,
+        "0823.HK": -1,
+        "2388.HK": -1
+      }
+    },
+    "jpy": {
+      "core": [
+        "yahoo:JPY=X",
+        "cftc:JAPANESE YEN",
+        "treasury:*"
+      ],
+      "required": [
+        [
+          "yahoo",
+          "JPY=X",
+          "美元兌日圓",
+          "目標資產"
+        ],
+        [
+          "options",
+          "FXY",
+          "日圓ETF期權",
+          "期權定價"
+        ],
+        [
+          "yahoo",
+          "FXY",
+          "日圓ETF",
+          "目標資產"
+        ],
+        [
+          "cftc",
+          "JAPANESE YEN",
+          "日圓持倉",
+          "資金持倉"
+        ],
+        [
+          "treasury",
+          "",
+          "美國國債曲線",
+          "利差"
+        ],
+        [
+          "fred",
+          "DFII10",
+          "美國實質利率",
+          "利差"
+        ],
+        [
+          "yahoo",
+          "^N225",
+          "日經平均",
+          "日本資產"
+        ],
+        [
+          "yahoo",
+          "DX-Y.NYB",
+          "美元指數",
+          "美元"
+        ],
+        [
+          "yahoo",
+          "^VIX",
+          "VIX",
+          "風險情緒"
+        ]
+      ],
+      "risk_direction": {
+        "JPY=X": 1,
+        "^N225": 1
+      }
+    }
+  },
+  "anomaly": {
+    "percentile_high": 95,
+    "percentile_low": 5,
+    "change_periods": 21,
+    "history_changes": 252,
+    "sigma_multiplier": 2
+  },
+  "fetch": {
+    "timeout_seconds": 20,
+    "max_retries": 1,
+    "cache_seconds": 1800,
+    "workers": 8
+  },
+  "workflow": {
+    "max_seconds": 1200
+  }
+}
