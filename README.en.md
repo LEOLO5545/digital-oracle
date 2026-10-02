@@ -1,5 +1,7 @@
 # Digital Oracle
 
+![Digital Oracle research workbench preview](docs/images/digital-oracle-preview.png)
+
 A local financial research workbench that turns scattered market signals into layered, traceable analysis. Ask a probability, numeric forecast, or directional question; inspect the evidence, assumptions, counterarguments, and report behind the answer.
 
 This fork adds a web application and a bounded multi-agent Codex workflow to [komako-workshop/digital-oracle](https://github.com/komako-workshop/digital-oracle). The interface and generated research currently use Traditional Chinese; this introduction is in English.
