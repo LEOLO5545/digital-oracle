@@ -70,15 +70,10 @@ Unit tests verify implementation behavior, not financial forecasting accuracy. A
 ```text
 outputs/oracle-local/       Web app, backend, UI, configuration and tests
 work/digital-oracle/        Adapted upstream source used by the web app
-digital_oracle/            Upstream-compatible provider source at repository root
-references/                Upstream provider and symbol documentation
-scripts/                   Upstream examples and regression tools
-SKILL.md                   Original methodology
-README.upstream.md         Original project introduction
 LICENSE                    Original MIT license and attribution
 ```
 
-The duplicated provider source preserves both the original skill layout and the existing local application layout. Keep corresponding adapter changes synchronized.
+The repository root introduces this research workbench. Upstream methodology, examples and provider tests are retained only inside `work/digital-oracle` as an attributed dependency.
 
 ## Limits and project status
 
@@ -90,4 +85,4 @@ Known areas needing further work include target-specific fallback validation, st
 
 This publication contains source code, tests and documentation. It excludes personal reports, live caches, logs, local virtual environments, browser profiles, API keys and Codex credentials. Local development Git history is not imported; the existing public upstream history is retained.
 
-Based on **Digital Oracle by komako-workshop**. The original MIT copyright notice and license are retained in [LICENSE](LICENSE). Original documentation is preserved in [README.upstream.md](README.upstream.md) and the provider snapshot. This fork's additions include the research web interface, local pipeline, Hong Kong adapters, report exports and multi-agent orchestration.
+Based on **Digital Oracle by komako-workshop**. The original MIT copyright notice and license are retained in [LICENSE](LICENSE). Original documentation is preserved in [the upstream README](work/digital-oracle/README.md) and the provider snapshot. This fork's additions include the research web interface, local pipeline, Hong Kong adapters, report exports and multi-agent orchestration.
